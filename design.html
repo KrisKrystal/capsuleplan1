@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计您的太空房 | 太空房</title>
+    <link rel="stylesheet" href="css/design.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 促销横幅 -->
+    <div class="promo-banner">
+        <div class="promo-content">
+            <p>5月31日（含）前下单指定外观配置，可享 8,000 元限时外观选装福利。</p>
+            <p>5月31日（含）前下单指定版本户型，购买合作保险可享 8,000 元限时保险补贴。</p>
+            <p>5月31日（含）前下单指定版本户型，可申请限时 5 年 0 息金融方案。</p>
+        </div>
+        <button class="promo-close" aria-label="关闭">×</button>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 120 30" class="logo-svg">
+                    <text x="0" y="22" class="logo-text">太空房</text>
+                </svg>
+            </a>
+            <div class="nav-actions">
+                <a href="#" class="nav-icon" aria-label="全球">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <ellipse cx="12" cy="12" rx="4" ry="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 12h20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </a>
+                <span class="nav-lang">CN</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main">
+        <!-- 产品展示区 -->
+        <section class="product-showcase" id="overview">
+            <div class="showcase-container">
+                <!-- 左侧产品图片 -->
+                <div class="product-visual">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80" 
+                             alt="太空房 L135" 
+                             class="product-image" 
+                             id="productImage">
+                        <div class="image-controls">
+                            <button class="image-btn active" data-view="front">正面</button>
+                            <button class="image-btn" data-view="side">侧面</button>
+                            <button class="image-btn" data-view="back">背面</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧配置面板 -->
+                <div class="config-panel">
+                    <div class="product-header">
+                        <h1 class="product-name">L135</h1>
+                        <p class="delivery-date">预计交付日期：2-4 周</p>
+                    </div>
+
+                    <!-- 户型版本选择 -->
+                    <div class="config-section">
+                        <h2 class="section-title">选择户型版本</h2>
+                        <div class="version-options">
+                            <label class="version-card active" data-version="standard" data-base-price="288000">
+                                <input type="radio" name="version" value="standard" checked>
+                                <div class="version-content">
+                                    <div class="version-header">
+                                        <span class="version-name">标准版</span>
+                                        <span class="version-price">¥288,000</span>
+                                    </div>
+                                    <div class="version-specs">
+                                        <span>54㎡ 建筑面积</span>
+                                        <span>一室一厅一厨一卫</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="version-card" data-version="deluxe" data-base-price="328000">
+                                <input type="radio" name="version" value="deluxe">
+                                <div class="version-content">
+                                    <div class="version-header">
+                                        <span class="version-name">豪华版</span>
+                                        <span class="version-price">¥328,000</span>
+                                    </div>
+                                    <div class="version-specs">
+                                        <span>54㎡ 建筑面积</span>
+                                        <span>升级内饰 + 智能家居</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="version-card" data-version="premium" data-base-price="388000">
+                                <input type="radio" name="version" value="premium">
+                                <div class="version-content">
+                                    <div class="version-header">
+                                        <span class="version-name">旗舰版</span>
+                                        <span class="version-price">¥388,000</span>
+                                    </div>
+                                    <div class="version-specs">
+                                        <span>54㎡ 建筑面积</span>
+                                        <span>全套配置 + 氢储能系统</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 外观颜色选择 -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h2 class="section-title">外观颜色</h2>
+                            <span class="selected-option" id="colorName">珍珠白</span>
+                        </div>
+                        <div class="color-options">
+                            <button class="color-btn active" data-color="white" data-color-name="珍珠白" data-price="0">
+                                <span class="color-swatch" style="background: #f5f5f5;"></span>
+                                <span class="color-label">珍珠白</span>
+                                <span class="color-price">包括</span>
+                            </button>
+                            <button class="color-btn" data-color="gray" data-color-name="星空灰" data-price="8000">
+                                <span class="color-swatch" style="background: #6b7280;"></span>
+                                <span class="color-label">星空灰</span>
+                                <span class="color-price">¥8,000</span>
+                            </button>
+                            <button class="color-btn" data-color="blue" data-color-name="深海蓝" data-price="8000">
+                                <span class="color-swatch" style="background: #1e40af;"></span>
+                                <span class="color-label">深海蓝</span>
+                                <span class="color-price">¥8,000</span>
+                            </button>
+                            <button class="color-btn" data-color="black" data-color-name="曜石黑" data-price="8000">
+                                <span class="color-swatch" style="background: #1f2937;"></span>
+                                <span class="color-label">曜石黑</span>
+                                <span class="color-price">¥8,000</span>
+                            </button>
+                            <button class="color-btn" data-color="red" data-color-name="中国红" data-price="12000">
+                                <span class="color-swatch" style="background: #dc2626;"></span>
+                                <span class="color-label">中国红</span>
+                                <span class="color-price">¥12,000</span>
+                            </button>
+                            <button class="color-btn" data-color="green" data-color-name="森林绿" data-price="12000">
+                                <span class="color-swatch" style="background: #166534;"></span>
+                                <span class="color-label">森林绿</span>
+                                <span class="color-price">¥12,000</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 门窗配置 -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h2 class="section-title">门窗配置</h2>
+                            <span class="selected-option" id="doorWindowName">标准配置</span>
+                        </div>
+                        <div class="doorwindow-options">
+                            <label class="option-card active" data-doorwindow="standard" data-price="0">
+                                <input type="radio" name="doorwindow" value="standard" checked>
+                                <div class="option-content">
+                                    <span class="option-name">标准配置</span>
+                                    <span class="option-desc">正门居中，窗户对称分布</span>
+                                    <span class="option-price">包括</span>
+                                </div>
+                            </label>
+                            <label class="option-card" data-doorwindow="panoramic" data-price="15000">
+                                <input type="radio" name="doorwindow" value="panoramic">
+                                <div class="option-content">
+                                    <span class="option-name">全景落地窗</span>
+                                    <span class="option-desc">超大落地窗，采光面积增加40%</span>
+                                    <span class="option-price">¥15,000</span>
+                                </div>
+                            </label>
+                            <label class="option-card" data-doorwindow="sliding" data-price="12000">
+                                <input type="radio" name="doorwindow" value="sliding">
+                                <div class="option-content">
+                                    <span class="option-name">推拉门配置</span>
+                                    <span class="option-desc">侧向推拉门，节省室内空间</span>
+                                    <span class="option-price">¥12,000</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 阳台配置 -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h2 class="section-title">阳台配置</h2>
+                            <span class="selected-option" id="balconyName">无阳台</span>
+                        </div>
+                        <div class="balcony-options">
+                            <label class="option-card active" data-balcony="none" data-price="0">
+                                <input type="radio" name="balcony" value="none" checked>
+                                <div class="option-content">
+                                    <span class="option-name">无阳台</span>
+                                    <span class="option-desc">简洁外观，更多室内空间</span>
+                                    <span class="option-price">包括</span>
+                                </div>
+                            </label>
+                            <label class="option-card" data-balcony="front" data-price="28000">
+                                <input type="radio" name="balcony" value="front">
+                                <div class="option-content">
+                                    <span class="option-name">前阳台</span>
+                                    <span class="option-desc">正面阳台，6㎡休闲空间</span>
+                                    <span class="option-price">¥28,000</span>
+                                </div>
+                            </label>
+                            <label class="option-card" data-balcony="side" data-price="28000">
+                                <input type="radio" name="balcony" value="side">
+                                <div class="option-content">
+                                    <span class="option-name">侧阳台</span>
+                                    <span class="option-desc">侧面阳台，6㎡观景空间</span>
+                                    <span class="option-price">¥28,000</span>
+                                </div>
+                            </label>
+                            <label class="option-card" data-balcony="wrap" data-price="45000">
+                                <input type="radio" name="balcony" value="wrap">
+                                <div class="option-content">
+                                    <span class="option-name">环绕阳台</span>
+                                    <span class="option-desc">L型环绕阳台，12㎡超大空间</span>
+                                    <span class="option-price">¥45,000</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 内饰选择 -->
+                    <div class="config-section">
+                        <div class="section-header">
+                            <h2 class="section-title">内饰风格</h2>
+                            <span class="selected-option" id="interiorName">现代简约</span>
+                        </div>
+                        <div class="interior-options">
+                            <button class="interior-btn active" data-interior="modern" data-interior-name="现代简约" data-price="0">
+                                <span class="interior-swatch" style="background: linear-gradient(135deg, #f5f5f5 50%, #d4d4d4 50%);"></span>
+                                <span class="interior-label">现代简约</span>
+                                <span class="interior-price">包括</span>
+                            </button>
+                            <button class="interior-btn" data-interior="nordic" data-interior-name="北欧风格" data-price="15000">
+                                <span class="interior-swatch" style="background: linear-gradient(135deg, #e5e5e5 50%, #a8a29e 50%);"></span>
+                                <span class="interior-label">北欧风格</span>
+                                <span class="interior-price">¥15,000</span>
+                            </button>
+                            <button class="interior-btn" data-interior="luxury" data-interior-name="轻奢风格" data-price="28000">
+                                <span class="interior-swatch" style="background: linear-gradient(135deg, #d4d4d8 50%, #71717a 50%);"></span>
+                                <span class="interior-label">轻奢风格</span>
+                                <span class="interior-price">¥28,000</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 附加选项 -->
+                    <div class="config-section">
+                        <h2 class="section-title">附加选项</h2>
+                        <div class="addon-options">
+                            <label class="addon-item">
+                                <input type="checkbox" class="addon-checkbox" data-addon="solar" data-price="35000">
+                                <div class="addon-content">
+                                    <div class="addon-info">
+                                        <span class="addon-name">太阳能发电系统</span>
+                                        <span class="addon-desc">5kW光伏系统，实现能源自给</span>
+                                    </div>
+                                    <span class="addon-price">¥35,000</span>
+                                </div>
+                            </label>
+                            <label class="addon-item">
+                                <input type="checkbox" class="addon-checkbox" data-addon="hydrogen" data-price="58000">
+                                <div class="addon-content">
+                                    <div class="addon-info">
+                                        <span class="addon-name">氢储能系统</span>
+                                        <span class="addon-desc">储存时间可达7个月无衰减</span>
+                                    </div>
+                                    <span class="addon-price">¥58,000</span>
+                                </div>
+                            </label>
+                            <label class="addon-item">
+                                <input type="checkbox" class="addon-checkbox" data-addon="smart" data-price="18000">
+                                <div class="addon-content">
+                                    <div class="addon-info">
+                                        <span class="addon-name">全屋智能家居</span>
+                                        <span class="addon-desc">语音控制 + 手机APP远程控制</span>
+                                    </div>
+                                    <span class="addon-price">¥18,000</span>
+                                </div>
+                            </label>
+                            <label class="addon-item">
+                                <input type="checkbox" class="addon-checkbox" data-addon="security" data-price="12000">
+                                <div class="addon-content">
+                                    <div class="addon-info">
+                                        <span class="addon-name">安防系统</span>
+                                        <span class="addon-desc">智能门锁 + 监控 + 报警系统</span>
+                                    </div>
+                                    <span class="addon-price">¥12,000</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 价格汇总 -->
+                    <div class="price-summary">
+                        <div class="summary-row">
+                            <span>房屋价格</span>
+                            <span id="basePriceDisplay">¥288,000</span>
+                        </div>
+                        <div class="summary-row" id="optionsPriceRow" style="display: none;">
+                            <span>选装配置</span>
+                            <span id="optionsPrice">¥0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>总计</span>
+                            <span id="totalPrice">¥288,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 规格参数 -->
+        <section class="specs-section">
+            <div class="specs-container">
+                <h2 class="specs-title">规格参数</h2>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-value">54㎡</span>
+                        <span class="spec-label">建筑面积</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">48㎡</span>
+                        <span class="spec-label">使用面积</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">3.2m</span>
+                        <span class="spec-label">层高</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">8吨</span>
+                        <span class="spec-label">房屋重量</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">9级</span>
+                        <span class="spec-label">抗震等级</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">70年</span>
+                        <span class="spec-label">设计寿命</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部固定价格栏 -->
+    <div class="price-bar" id="priceBar">
+        <div class="price-bar-content">
+            <div class="price-info">
+                <button class="price-toggle" id="priceToggle">
+                    <span class="monthly-price" id="monthlyPrice">¥2,460 /月</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" class="toggle-icon">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <span class="total-price-small" id="totalPriceSmall">房屋价格 ¥288,000</span>
+            </div>
+            <button class="order-btn">立即下单</button>
+        </div>
+        <div class="price-details" id="priceDetails">
+            <div class="details-content">
+                <div class="detail-row">
+                    <span>房屋价格</span>
+                    <span id="detailBasePrice">¥288,000</span>
+                </div>
+                <div class="detail-row" id="detailOptionsRow" style="display: none;">
+                    <span>选装配置</span>
+                    <span id="detailOptionsPrice">¥0</span>
+                </div>
+                <div class="detail-row total">
+                    <span>车辆价格</span>
+                    <span id="detailTotalPrice">¥288,000</span>
+                </div>
+                <p class="price-note">价格包含增值税，不含保险、上牌等费用</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/design.js"></script>
+</body>
+</html>
